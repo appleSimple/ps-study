@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Assign PR creator
-        uses: pozil/auto-assign-action@v1.2.4
+        uses: kentaro-m/auto-assign-action@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           assignees: ${{ github.actor }}  # PR 작성자를 Assignee로 자동 추가
@@ -24,7 +24,7 @@ jobs:
             echo "Reviewers: $REVIEWERS"
           
         - name: Add reviewers
-          uses: actions/add-reviewers@v1
+          uses: rtCamp/action-add-reviewers@v2
           with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
             reviewers: ${{ steps.assign_reviewers.outputs.REVIEWERS }}
