@@ -9,22 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Assign PR creator
-        uses: kentaro-m/auto-assign-action@v2
+        uses: kentaro-m/auto-assign-action@v2.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           assignees: ${{ github.actor }}  # PR 작성자를 Assignee로 자동 추가
   assign_reviewers:
       runs-on: ubuntu-latest
       steps:
-        - name: Get team members (excluding self)
-          run: |
-            TEAM_MEMBERS=$(curl -s https://api.github.com/orgs/your-org/teams/your-team-name/members -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}")
-            EXCLUDED_USER="your-github-username"
-            REVIEWERS=$(echo "$TEAM_MEMBERS" | jq -r ".[] | select(.login != \"$EXCLUDED_USER\") | .login" | paste -sd, -)
-            echo "Reviewers: $REVIEWERS"
-          
-        - name: Add reviewers
-          uses: rtCamp/action-add-reviewers@v2
+        - name: Add reviewers to PR
+          uses: madrapps/add-reviewers@v1
           with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
-            reviewers: ${{ steps.assign_reviewers.outputs.REVIEWERS }}
+            reviewers: "appleSimple,Komo1284,pable91"  # 리뷰어를 자동으로 추가할 GitHub 사용자명 입력
