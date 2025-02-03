@@ -1,0 +1,30 @@
+name: Auto Assign PR Creator
+
+on:
+  pull_request:
+    types: [opened]  # PR이 생성될 때 실행
+
+jobs:
+  auto-assign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign PR creator
+        uses: pozil/auto-assign-action@v1.2.4
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          assignees: ${{ github.actor }}  # PR 작성자를 Assignee로 자동 추가
+  assign_reviewers:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Get team members (excluding self)
+          run: |
+            TEAM_MEMBERS=$(curl -s https://api.github.com/orgs/your-org/teams/your-team-name/members -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}")
+            EXCLUDED_USER="your-github-username"
+            REVIEWERS=$(echo "$TEAM_MEMBERS" | jq -r ".[] | select(.login != \"$EXCLUDED_USER\") | .login" | paste -sd, -)
+            echo "Reviewers: $REVIEWERS"
+          
+        - name: Add reviewers
+          uses: actions/add-reviewers@v1
+          with:
+            repo-token: ${{ secrets.GITHUB_TOKEN }}
+            reviewers: ${{ steps.assign_reviewers.outputs.REVIEWERS }}
