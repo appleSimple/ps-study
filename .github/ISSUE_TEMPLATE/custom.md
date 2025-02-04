@@ -3,7 +3,7 @@ name: Custom issue template
 about: weekly problem
 title: BKJ, PRM ..
 labels: ''
-assignees: appleSimple, Komo1284
+assignees: appleSimple, Komo1284, pable91
 
 ---
 
