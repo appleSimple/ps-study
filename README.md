@@ -3,8 +3,8 @@
 
 ## 🧑‍💻 참여
 
-| appleSimple | Komo1284 | pable91 |
-|-------|-------|-------|
+| appleSimple | Komo1284 | pable91 | kroosy |
+|-------|-------|-------|-------|
 | [<img src="https://github.com/appleSimple.png" width="100">](https://github.com/appleSimple) | [<img src="https://github.com/Komo1284.png" width="100">](https://github.com/Komo1284) | [<img src="https://github.com/pable91.png" width="100">](https://github.com/pable91) | [<img src="https://github.com/kroosy.png" width="100">](https://github.com/kroosy) |
 
 ## ☑️ rules
