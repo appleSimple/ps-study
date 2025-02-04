@@ -12,7 +12,7 @@
   - 라운드당 면제는 1회입니다.
 - 1주에 3문제씩 풀이해야 합니다.
 - 매주 올라온 `issue`에 `PR`을 올립니다.
-  - asignee: 본인
+  - assignee: 본인
   - reviewer: 본인 제외 전원
 - 전원 `approve` 받아야 `merge` 가능합니다.
 
