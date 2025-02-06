@@ -1,4 +1,4 @@
-name: Auto Assign PR Creator
+name: Auto Assign PR Creator 
 
 on:
   pull_request:
